@@ -79,36 +79,16 @@ export default class ReadStoryScreen extends React.Component {
   };
   render() {
     return (
-      <View>
-        <Header
-          backgroundColor={"white"}
-          centerComponent={{
-            text: "Story Hub",
-            style: {
-              color: "blue",
-              height: 50,
-              borderColor: "red",
-
-              fontWeight: "bold",
-              fontSize: 40,
-              textAlign: "center",
-              alignSelf: "center",
-              justifyContent: "center",
-              justifyContent: "center",
-              alignItems: "center",
-              textAlign: "center",
-            },
-          }}
+      <View style={styles.viewStyle}>
+        <Text style={styles.title}>Story Hub</Text>
+        <Image
+          source={require("../assets/submitIMG.png")}
+          style={styles.imgstyle}
         />
         <TextInput
-          style={{
-            width: 150,
-            borderWidth: 1,
-            marginLeft: 50,
-            marginTop: 30,
-            borderColor: "blue",
-          }}
+          style={styles.inputBox2}
           placeholder="Search Here"
+          placeholderTextColor="grey"
         />
         <TouchableOpacity
           style={{
@@ -133,8 +113,9 @@ export default class ReadStoryScreen extends React.Component {
             <View>
               <Text
                 style={{
-                  marginLeft: 50,
-
+                  marginLeft: 170,
+                  color: "white",
+                  fontSize: 30,
                   fontWeight: "bold",
                   width: 300,
                 }}
@@ -144,8 +125,9 @@ export default class ReadStoryScreen extends React.Component {
               </Text>
               <Text
                 style={{
-                  marginLeft: 50,
-
+                  marginLeft: 170,
+                  color: "white",
+                  fontSize: 23,
                   width: 300,
                 }}
               >
@@ -172,3 +154,44 @@ export default class ReadStoryScreen extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  viewStyle: {
+    marginTop: 40,
+    alignSelf: "center",
+    backgroundColor: "black",
+    height: 2700,
+    marginTop: 0,
+    width: 700,
+  },
+  title: {
+    color: "yellow",
+    height: 50,
+    borderColor: "red",
+    backgroundColor: "black",
+    marginTop: 40,
+    fontWeight: "bold",
+    fontSize: 40,
+    textAlign: "center",
+    alignSelf: "center",
+    justifyContent: "center",
+    marginLeft: -90,
+  },
+  imgstyle: {
+    marginLeft: 440,
+    marginTop: -55,
+    height: 60,
+    width: 60,
+  },
+  inputBox2: {
+    borderWidth: 2,
+    width: 400,
+    fontSize: 30,
+    textAlign: "left",
+    borderColor: "yellow",
+    alignSelf: "center",
+    marginTop: 30,
+    height: 50,
+    color: "white",
+  },
+});

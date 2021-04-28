@@ -1,10 +1,12 @@
 import React from "react";
+import { SafeAreaView } from "react-native";
 import {
   StyleSheet,
   Text,
   View,
   TouchableOpacity,
   TextInput,
+  Image,
   Alert,
   ScrollView,
 } from "react-native";
@@ -40,38 +42,20 @@ export default class WriteStoryScreen extends React.Component {
   render() {
     return (
       <ScrollView>
-        <View style={{ marginTop: 40, alignSelf: "center" }}>
-          <Header
-            backgroundColor={"white"}
-            centerComponent={{
-              text: "Story Hub",
-              style: {
-                color: "blue",
-                height: 50,
-                borderColor: "red",
-
-                fontWeight: "bold",
-                fontSize: 40,
-                textAlign: "center",
-                alignSelf: "center",
-                justifyContent: "center",
-              },
-            }}
-          />
+        <View style={styles.viewStyle}>
+          <Text style={styles.title}>Story Hub</Text>
+          <TouchableOpacity>
+            <Image
+              source={require("../assets/submitIMG.png")}
+              style={styles.imgstyle}
+            />
+          </TouchableOpacity>
           <Text style={styles.text2}>STORY TITLE</Text>
           <TouchableOpacity>
             <TextInput
-              style={{
-                borderWidth: 2,
-                width: 400,
-                fontSize: 30,
-                textAlign: "center",
-                borderColor: "green",
-                alignSelf: "center",
-                marginTop: 2,
-                height: 50,
-              }}
+              style={styles.inputBox1}
               placeholder="Title"
+              placeholderTextColor="grey"
               onChangeText={(text) => {
                 this.setState({ inputTitle: text });
               }}
@@ -80,17 +64,9 @@ export default class WriteStoryScreen extends React.Component {
           </TouchableOpacity>
           <Text style={styles.text3}>AUTHOR NAME</Text>
           <TextInput
-            style={{
-              borderWidth: 2,
-              width: 400,
-              fontSize: 30,
-              textAlign: "center",
-              borderColor: "red",
-              alignSelf: "center",
-              marginTop: 2,
-              height: 50,
-            }}
+            style={styles.inputBox2}
             placeholder="Author"
+            placeholderTextColor="grey"
             onChangeText={(text) => {
               this.setState({ inputAuthor: text });
             }}
@@ -98,30 +74,25 @@ export default class WriteStoryScreen extends React.Component {
           />
           <Text style={styles.text4}>WRITE YOUR STORY</Text>
           <TextInput
-            style={{
-              borderWidth: 2,
-              width: 400,
-              fontSize: 30,
-              textAlign: "center",
-              borderColor: "blue",
-              alignSelf: "center",
-              marginTop: 2,
-              height: 280,
-            }}
+            style={styles.inputBox3}
             placeholder="Write your story"
+            placeholderTextColor="grey"
             onChangeText={(text) => {
               this.setState({ inputStory: text });
             }}
             value={this.state.inputStory}
           />
           <TouchableOpacity
-            style={styles.text5}
             onPress={async () => {
               this.submitStory();
             }}
           >
-            <Text style={{ fontSize: 30 }}>SUBMIT</Text>
+            <Text style={styles.title2}>SUBMIT</Text>
           </TouchableOpacity>
+          <Image
+            source={require("../assets/tick.png")}
+            style={styles.imgstyle2}
+          />
         </View>
       </ScrollView>
     );
@@ -135,7 +106,7 @@ const styles = StyleSheet.create({
     marginLeft: -200,
     alignItems: "center",
     textAlign: "center",
-    color: "green",
+    color: "white",
   },
   text3: {
     fontSize: 32,
@@ -143,7 +114,7 @@ const styles = StyleSheet.create({
     marginLeft: -160,
     alignItems: "center",
     textAlign: "center",
-    color: "red",
+    color: "white",
   },
   text4: {
     fontSize: 32,
@@ -151,7 +122,7 @@ const styles = StyleSheet.create({
     marginLeft: -100,
     alignItems: "center",
     textAlign: "center",
-    color: "blue",
+    color: "white",
   },
   text5: {
     color: "blue",
@@ -166,5 +137,89 @@ const styles = StyleSheet.create({
     borderColor: "blue",
     borderRadius: 15,
     backgroundColor: "blue",
+  },
+  title: {
+    color: "yellow",
+    height: 50,
+    borderColor: "red",
+    backgroundColor: "black",
+    marginTop: 40,
+    fontWeight: "bold",
+    fontSize: 40,
+    textAlign: "center",
+    alignSelf: "center",
+    justifyContent: "center",
+    marginLeft: -90,
+  },
+  title2: {
+    color: "white",
+    backgroundColor: "red",
+    height: 70,
+    textAlign: "center",
+    borderColor: "red",
+    backgroundColor: "black",
+    marginTop: 40,
+    fontWeight: "bold",
+    fontSize: 45,
+    alignItems: "center",
+    alignSelf: "center",
+    justifyContent: "center",
+    marginLeft: -10,
+    borderWidth: 1,
+    borderRadius: 14,
+    width: 240,
+  },
+  viewStyle: {
+    marginTop: 40,
+    alignSelf: "center",
+    backgroundColor: "black",
+    height: 2700,
+    marginTop: 0,
+    width: 700,
+  },
+  inputBox1: {
+    borderWidth: 2,
+    width: 400,
+    fontSize: 30,
+    textAlign: "left",
+    borderColor: "yellow",
+    alignSelf: "center",
+    marginTop: 2,
+    height: 50,
+    color: "white",
+  },
+  inputBox2: {
+    borderWidth: 2,
+    width: 400,
+    fontSize: 30,
+    textAlign: "left",
+    borderColor: "yellow",
+    alignSelf: "center",
+    marginTop: 2,
+    height: 50,
+    color: "white",
+  },
+  inputBox3: {
+    borderWidth: 2,
+    width: 400,
+    fontSize: 30,
+    textAlign: "left",
+    borderColor: "yellow",
+    alignSelf: "center",
+    marginTop: 2,
+    height: 280,
+    color: "white",
+  },
+  imgstyle: {
+    marginLeft: 440,
+    marginTop: -55,
+    height: 60,
+    width: 60,
+  },
+  imgstyle2: {
+    marginLeft: 470,
+    marginTop: -70,
+    height: 60,
+    width: 60,
   },
 });
